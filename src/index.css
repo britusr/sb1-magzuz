@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Global transitions */
+* {
+  @apply transition-colors duration-200;
+}
+
+/* Button hover effects */
+button {
+  @apply transform transition-all duration-200 hover:scale-[1.02] active:scale-[0.98];
+}
+
+/* Input focus animations */
+input, textarea {
+  @apply transition-all duration-200 focus:ring-2 focus:ring-offset-2 focus:ring-green-500;
+}
+
+/* Card hover effects */
+.card-hover {
+  @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+}
+
+/* Page transitions */
+.page-enter {
+  @apply opacity-0 transform translate-x-4;
+}
+
+.page-enter-active {
+  @apply opacity-100 transform translate-x-0 transition-all duration-300;
+}
+
+.page-exit {
+  @apply opacity-100 transform translate-x-0;
+}
+
+.page-exit-active {
+  @apply opacity-0 transform -translate-x-4 transition-all duration-300;
+}
+
+/* Loading spinner animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin 3s linear infinite;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Pulse animation for notifications */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse 2s infinite;
+}
+
+/* Shimmer loading effect */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.loading-shimmer {
+  animation: shimmer 2s infinite linear;
+  background: linear-gradient(to right, #f6f7f8 8%, #edeef1 18%, #f6f7f8 33%);
+  background-size: 1000px 100%;
+}
